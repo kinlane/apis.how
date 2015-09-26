@@ -1,0 +1,291 @@
+{
+	"id": "ce80c7d9-6e0d-0e91-0695-9608a93f1c58",
+	"name": "TSA.Report",
+	"description": "This is a project I came up with during my travels, allowing anyone to report any thought while in the TSA line.",
+	"order": [],
+	"folders": [
+		{
+			"id": "50366af3-7c7b-3c46-2c53-ce3fe5430d87",
+			"name": "report",
+			"description": "Folder for report",
+			"order": [
+				"6c60d90c-a8f8-a646-c490-039ef7f85d8e",
+				"4b3cd585-31d8-b58e-e4ba-55ded851306d",
+				"d8595990-1765-c40a-febb-cc48bd0487eb",
+				"dcfa74d0-4e2b-789d-d6f7-09501b84ed48",
+				"ac81a6b5-4f3b-5b37-516e-2a5c71ef5a59",
+				"4796df4f-a1a3-4379-4076-0944a4f49b64",
+				"4a5972fe-f198-7ef2-fa73-325669db6bf3",
+				"f1895c90-6853-9f21-82e1-ee7598471a1c",
+				"09ed1905-20e1-ad90-fceb-1eb90f13b49e",
+				"d409c38e-1559-b80b-1c99-5260ad1ead8d"
+			],
+			"owner": "27278"
+		}
+	],
+	"timestamp": 1413302258635,
+	"owner": "27278",
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "09ed1905-20e1-ad90-fceb-1eb90f13b49e",
+			"headers": "",
+			"url": "http://api.tsa.report/report/%7B%7Breport_id%7D%7D/tags/?appid={{appid}}&appkey={{appkey}}&tag={{tag}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "add tag to report",
+			"descriptionFormat": "html",
+			"time": 1443292305840,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "ce80c7d9-6e0d-0e91-0695-9608a93f1c58",
+			"name": "add tag to report",
+			"folder": "50366af3-7c7b-3c46-2c53-ce3fe5430d87"
+		},
+		{
+			"id": "4796df4f-a1a3-4379-4076-0944a4f49b64",
+			"headers": "",
+			"url": "http://api.tsa.report/report/%7B%7Breport_id%7D%7D/?appid={{appid}}&appkey={{appkey}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "delete report",
+			"descriptionFormat": "html",
+			"time": 1443292305840,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "ce80c7d9-6e0d-0e91-0695-9608a93f1c58",
+			"name": "delete report",
+			"folder": "50366af3-7c7b-3c46-2c53-ce3fe5430d87"
+		},
+		{
+			"id": "4a5972fe-f198-7ef2-fa73-325669db6bf3",
+			"headers": "",
+			"url": "http://api.tsa.report/report/%7B%7Breport_id%7D%7D/approve/?appid={{appid}}&appkey={{appkey}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "approve report",
+			"descriptionFormat": "html",
+			"time": 1443292305840,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "ce80c7d9-6e0d-0e91-0695-9608a93f1c58",
+			"name": "approve report",
+			"folder": "50366af3-7c7b-3c46-2c53-ce3fe5430d87"
+		},
+		{
+			"id": "4b3cd585-31d8-b58e-e4ba-55ded851306d",
+			"headers": "",
+			"url": "http://api.tsa.report/report/?appid={{appid}}&appkey={{appkey}}&title={{title}}&content={{content}}&Reports={{Reports}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "add a report",
+			"descriptionFormat": "html",
+			"time": 1443292305838,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "ce80c7d9-6e0d-0e91-0695-9608a93f1c58",
+			"name": "add a report",
+			"folder": "50366af3-7c7b-3c46-2c53-ce3fe5430d87"
+		},
+		{
+			"id": "6c60d90c-a8f8-a646-c490-039ef7f85d8e",
+			"headers": "",
+			"url": "http://api.tsa.report/report/?appid={{appid}}&appkey={{appkey}}&query={{query}}&page={{page}}&count={{count}}&sort={{sort}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "all report",
+			"descriptionFormat": "html",
+			"time": 1443292305837,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "ce80c7d9-6e0d-0e91-0695-9608a93f1c58",
+			"name": "all report",
+			"folder": "50366af3-7c7b-3c46-2c53-ce3fe5430d87"
+		},
+		{
+			"id": "ac81a6b5-4f3b-5b37-516e-2a5c71ef5a59",
+			"headers": "",
+			"url": "http://api.tsa.report/report/%7B%7Breport_id%7D%7D/?appid={{appid}}&appkey={{appkey}}&report_date={{report_date}}&title={{title}}&content={{content}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "PUT",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "update report",
+			"descriptionFormat": "html",
+			"time": 1443292305840,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "ce80c7d9-6e0d-0e91-0695-9608a93f1c58",
+			"name": "update report",
+			"folder": "50366af3-7c7b-3c46-2c53-ce3fe5430d87"
+		},
+		{
+			"id": "d409c38e-1559-b80b-1c99-5260ad1ead8d",
+			"headers": "",
+			"url": "http://api.tsa.report/report/%7B%7Breport_id%7D%7D/tags/%7Btag%7D?appid={{appid}}&appkey={{appkey}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "delete report tag",
+			"descriptionFormat": "html",
+			"time": 1443292305840,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "ce80c7d9-6e0d-0e91-0695-9608a93f1c58",
+			"name": "delete report tag",
+			"folder": "50366af3-7c7b-3c46-2c53-ce3fe5430d87"
+		},
+		{
+			"id": "d8595990-1765-c40a-febb-cc48bd0487eb",
+			"headers": "",
+			"url": "http://api.tsa.report/report/waiting/?appid={{appid}}&appkey={{appkey}}&query={{query}}&page={{page}}&count={{count}}&sort={{sort}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "get reports waiting for approval",
+			"descriptionFormat": "html",
+			"time": 1443292305838,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "ce80c7d9-6e0d-0e91-0695-9608a93f1c58",
+			"name": "get reports waiting for approval",
+			"folder": "50366af3-7c7b-3c46-2c53-ce3fe5430d87"
+		},
+		{
+			"id": "dcfa74d0-4e2b-789d-d6f7-09501b84ed48",
+			"headers": "",
+			"url": "http://api.tsa.report/report/%7B%7Breport_id%7D%7D/?appid={{appid}}&appkey={{appkey}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "retrieve a report using its id",
+			"descriptionFormat": "html",
+			"time": 1443292305839,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "ce80c7d9-6e0d-0e91-0695-9608a93f1c58",
+			"name": "retrieve a report using its id",
+			"folder": "50366af3-7c7b-3c46-2c53-ce3fe5430d87"
+		},
+		{
+			"id": "f1895c90-6853-9f21-82e1-ee7598471a1c",
+			"headers": "",
+			"url": "http://api.tsa.report/report/%7B%7Breport_id%7D%7D/tags/?appid={{appid}}&appkey={{appkey}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "report tags",
+			"descriptionFormat": "html",
+			"time": 1443292305840,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "ce80c7d9-6e0d-0e91-0695-9608a93f1c58",
+			"name": "report tags",
+			"folder": "50366af3-7c7b-3c46-2c53-ce3fe5430d87"
+		}
+	]
+}

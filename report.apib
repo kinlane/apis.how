@@ -1,0 +1,325 @@
+FORMAT: 1A
+HOST: http://api.tsa.report/
+
+# TSA.Report
+This is a project I came up with during my travels, allowing anyone to report any thought while in the TSA line.
+
+## Authentication
+This API uses Custom Query Parameter for its authentication.
+
+The parameters that are needed to be sent for this type of authentication are as follows:
++ `appid`
++ `appkey`
+
+# Group Reports
+
+## Report [/report/{?appid,appkey,query,page,count,sort}]
+
+### getreport [GET]
+all report
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the report
+
+    + appkey (string, required)
+
+        your appkey for accessing the report
+
+    + query (string, optional)
+
+        a text query to search across report
+
+    + page (string, optional)
+
+        which page of results to show
+
+    + count (string, optional)
+
+        how many to show on page
+
+    + sort (string, optional)
+
+        which field to sort by
+
+
++ Response 200 (application/json)
+    + Attributes (array[report])
+
+
+## Report [/report/{?appid,appkey,title,content,Reports}]
+
+### addUrl [POST]
+add a report
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the report
+
+    + appkey (string, required)
+
+        your appkey for accessing the report
+
+    + title (string, required)
+
+        ttle for the report
+
+    + content (string, optional)
+
+        content for the report
+
+    + Reports (string, optional)
+
+        report for the report
+
+
++ Response 200 (application/json)
+    + Attributes (array[report])
+
+
+## Report Waiting [/report/waiting/{?appid,appkey,query,page,count,sort}]
+
+### getWaitingReports [GET]
+get reports waiting for approval
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the report
+
+    + appkey (string, required)
+
+        your appkey for accessing the report
+
+    + query (string, optional)
+
+        a text query to search across report
+
+    + page (string, optional)
+
+        which page of results to show
+
+    + count (string, optional)
+
+        how many to show on page
+
+    + sort (string, optional)
+
+        which field to sort by
+
+
++ Response 200 (application/json)
+    + Attributes (array[report])
+
+
+## Report By Report Id [/report/{report_id}/{?appid,appkey}]
+
++ Parameters
+    + report_id (number, required)
+
+        the unique id for report entry
+
+
+### getreport [GET]
+retrieve a report using its id
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the report
+
+    + appkey (string, required)
+
+        your appkey for accessing the report
+
+
++ Response 200 (application/json)
+    + Attributes (array[report])
+
+
+## Report By Report Id [/report/{report_id}/{?appid,appkey,report_date,title,content}]
+
++ Parameters
+    + report_id (number, required)
+
+        the unique id for report
+
+
+### updatereport [PUT]
+update report
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the report
+
+    + appkey (string, required)
+
+        your appkey for accessing the report
+
+    + report_date (string, optional)
+
+        date the report was last pulled
+
+    + title (string, optional)
+
+        ttle for the report
+
+    + content (string, optional)
+
+        content of the report
+
+
++ Response 200 (application/json)
+    + Attributes (array[report])
+
+
+## Report By Report Id [/report/{report_id}/{?appid,appkey}]
+
++ Parameters
+    + report_id (number, required)
+
+        the unique id for report entry
+
+
+### deletereport [DELETE]
+delete report
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the report
+
+    + appkey (string, required)
+
+        your appkey for accessing the report
+
+
++ Response 200 (application/json)
+    + Attributes (array[report])
+
+
+## Report Approve By Report Id [/report/{report_id}/approve/{?appid,appkey}]
+
++ Parameters
+    + report_id (number, required)
+
+        the unique id for report
+
+
+### approveReport [POST]
+approve report
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the report
+
+    + appkey (string, required)
+
+        your appkey for accessing the report
+
+
++ Response 200 (application/json)
+    + Attributes (array[report])
+
+
+
+# Group Tags
+
+## Report Tags By Report Id [/report/{report_id}/tags/{?appid,appkey}]
+
++ Parameters
+    + report_id (number, required)
+
+        id for report
+
+
+### getreportTags [GET]
+report tags
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the report
+
+    + appkey (string, required)
+
+        your appkey for accessing the report
+
+
++ Response 200 (application/json)
+    + Attributes (array[tag])
+
+
+## Report Tags By Report Id [/report/{report_id}/tags/{?appid,appkey,tag}]
+
++ Parameters
+    + report_id (number, required)
+
+        id for the report
+
+
+### addreportTag [POST]
+add tag to report
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the report
+
+    + appkey (string, required)
+
+        your appkey for accessing the report
+
+    + tag (string, required)
+
+        tag name
+
+
++ Response 200 (application/json)
+    + Attributes (array[tag])
+
+
+## Report Tags By Report Id And Tag [/report/{report_id}/tags/{tag}{?appid,appkey}]
+
++ Parameters
+    + report_id (string, required)
+
+        id for the report
+
+    + tag (string, required)
+
+        tag to remove from report
+
+
+### deletereportTag [DELETE]
+delete report tag
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the report
+
+    + appkey (string, required)
+
+        your appkey for accessing the report
+
+
++ Response 200 (application/json)
+    + Attributes (array[tag])
+
+
+
+# Data Structures
+
+## report (object)
+
+
+### Properties
++ `report_id` (number, optional) - unique id of the report
++ `report_date` (string, optional) - date the report was posted
++ `title` (string, optional) - ttle for the report
++ `content` (string, optional) - content of the report
+
+
+## tag (object)
+
+
+### Properties
++ `tag_id` (number, optional) - id for the tag
++ `tag` (string, optional) - text tag
++ `api_count` (number, optional) - number of items api with tag
+

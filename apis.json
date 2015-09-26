@@ -1,0 +1,61 @@
+{
+  "name": "APIs.How",
+  "description": "I have long used Bit.ly as my URL shortner, but recently have started outgrowing the platform, and needing more control over my links. I have apis.how as a universal URL shortener for my online and offline linkage.",
+  "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-link.png",
+  "tags": [
+    "Application Programming Interface",
+    "API",
+    "Links"
+  ],
+  "created": "2015-09-26",
+  "modified": "2015-09-26",
+  "url": "http://developer.apis.how/apis.json",
+  "SpecificationVersion": "0.14",
+  "apis": [
+    {
+      "name": "APIs.How",
+      "description": "The API for APIs.How",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-link.png",
+      "humanURL": "http://developer.apis.how/",
+      "baseURL": "http://api.apis.how",
+      "tags": [
+        "API",
+        "Application Programming Interface",
+        "TSA"
+      ],
+      "properties": [
+        {
+          "type": "Swagger",
+          "url": "http://developer.apis.how/swagger.json"
+        },
+        {
+          "type": "Blueprint",
+          "url": "http://developer.apis.how/link.apib"
+        },
+        {
+          "type": "x-postman",
+          "url": "http://developer.apis.how/postman.json"
+        },
+        {
+          "type": "x-api-science",
+          "url": "http://developer.apis.how/status/"
+        }
+      ],
+      "contact": [
+        {
+          "FN": "API Evangliest",
+          "email": "info@apievangelist.com",
+          "X-twitter": "apievangelist"
+        }
+      ]
+    }
+  ],
+  "include": [],
+  "maintainers": [
+    {
+      "FN": "API Evangliest",
+      "X-twitter": "apievangelist",
+      "email": "info@apievangelist.com"
+    }
+  ]
+}

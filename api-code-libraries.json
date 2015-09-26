@@ -1,0 +1,32 @@
+{
+  "libraries": {
+    "php": {
+      "icon-url": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-php-file.png",
+      "zip-url": "https://kin-lane.github.io/blog/code/libraries/kinlane-github-io-blog-swagger-json-php.zip"
+    },
+    "python": {
+      "icon-url": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-python-file.png",
+      "zip-url": "https://kin-lane.github.io/blog/code/libraries/kinlane-github-io-blog-swagger-json-python.zip"
+    },
+    "ruby": {
+      "icon-url": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-ruby-file.png",
+      "zip-url": "https://kin-lane.github.io/blog/code/libraries/kinlane-github-io-blog-swagger-json-ruby.zip"
+    },
+    "java": {
+      "icon-url": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-java-file.png",
+      "zip-url": "https://kin-lane.github.io/blog/code/libraries/kinlane-github-io-blog-swagger-json-java.zip"
+    },
+    "csharp": {
+      "icon-url": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-csharp-file.png",
+      "zip-url": "https://kin-lane.github.io/blog/code/libraries/kinlane-github-io-blog-swagger-json-csharp.zip"
+    },
+    "objc": {
+      "icon-url": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-objc-file.png",
+      "zip-url": "https://kin-lane.github.io/blog/code/libraries/kinlane-github-io-blog-swagger-json-objc.zip"
+    },
+    "android": {
+      "icon-url": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-android-file.png",
+      "zip-url": "https://kin-lane.github.io/blog/code/libraries/kinlane-github-io-blog-swagger-json-android.zip"
+    }
+  }
+}
