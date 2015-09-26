@@ -1,9 +1,9 @@
 <?php		
-$route = '/url/:url_id/';
-$app->delete($route, function ($url_id) use ($app){
+$route = '/link/:link_id/';
+$app->delete($route, function ($link_id) use ($app){
 
 	$host = $_SERVER['HTTP_HOST'];
-	$url_id = prepareIdIn($url_id,$host);
+	$link_id = prepareIdIn($link_id,$host);
 
 	$Add = 1;
 	$ReturnObject = array();
@@ -11,7 +11,7 @@ $app->delete($route, function ($url_id) use ($app){
  	$request = $app->request();
  	$_POST = $request->params();
 
-	$query = "DELETE FROM url WHERE ID = " . $url_id;
+	$query = "DELETE FROM link WHERE ID = " . $link_id;
 	//echo $query . "<br />";
 	mysql_query($query) or die('Query failed: ' . mysql_error());
 

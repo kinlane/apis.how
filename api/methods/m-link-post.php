@@ -1,5 +1,5 @@
 <?php
-$route = '/url/';
+$route = '/link/';
 $app->post($route, function () use ($app){
 
 	$Add = 1;
@@ -8,38 +8,36 @@ $app->post($route, function () use ($app){
  	$request = $app->request();
  	$params = $request->params();
 
-	if(isset($params['pull_date'])){ $pull_date = mysql_real_escape_string($params['pull_date']); } else { $pull_date = date('Y-m-d H:i:s'); }
-	if(isset($params['title'])){ $title = mysql_real_escape_string($params['title']); } else { $title = 'No Title'; }
-	if(isset($params['content'])){ $content = mysql_real_escape_string($params['content']); } else { $content = ''; }
-	if(isset($params['url'])){ $url = mysql_real_escape_string($params['url']); } else { $url = ''; }
+	if(isset($params['created_date'])){ $created_date = mysql_real_escape_string($params['created_date']); } else { $created_date = date('Y-m-d H:i:s'); }
+	if(isset($params['url'])){ $url = mysql_real_escape_string($params['url']); } else { $url = 'No Title'; }
+	if(isset($params['short_url'])){ $short_url = mysql_real_escape_string($params['short_url']); } else { $short_url = ''; }
 
-  $Query = "SELECT * FROM url WHERE url = '" . $url . "'";
+  	$Query = "SELECT * FROM link WHERE link = '" . $link . "'";
 	//echo $Query . "<br />";
 	$Database = mysql_query($Query) or die('Query failed: ' . mysql_error());
 
 	if($Database && mysql_num_rows($Database))
 		{
 		$ThisBlog = mysql_fetch_assoc($Database);
-		$url_id = $ThisBlog['url_id'];
+		$link_id = $ThisBlog['link_id'];
 		}
 	else
 		{
-		$Query = "INSERT INTO url(pull_date,title,content,url)";
+		$Query = "INSERT INTO link(created_date,url,short_url)";
 		$Query .= " VALUES(";
-		$Query .= "'" . mysql_real_escape_string($pull_date) . "',";
-		$Query .= "'" . mysql_real_escape_string($title) . "',";
-		$Query .= "'" . mysql_real_escape_string($content) . "',";
-		$Query .= "'" . mysql_real_escape_string($url) . "'";
+		$Query .= "'" . mysql_real_escape_string($created_date) . "',";
+		$Query .= "'" . mysql_real_escape_string($url) . "',";
+		$Query .= "'" . mysql_real_escape_string($short_url) . "'";
 		$Query .= ")";
 		//echo $Query . "<br />";
 		mysql_query($Query) or die('Query failed: ' . mysql_error());
-		$url_id = mysql_insert_id();
+		$link_id = mysql_insert_id();
 		}
 
 	 $host = $_SERVER['HTTP_HOST'];
-   $url_id = prepareIdOut($url_id,$host);
+   $link_id = prepareIdOut($link_id,$host);
 
-	$ReturnObject['url_id'] = $url_id;
+	$ReturnObject['link_id'] = $link_id;
 
 	$app->response()->header("Content-Type", "application/json");
 	echo format_json(json_encode($ReturnObject));

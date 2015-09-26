@@ -1,53 +1,50 @@
 <?php
-$route = '/url/:url_id/';
-$app->put($route, function ($url_id) use ($app){
+$route = '/link/:link_id/';
+$app->put($route, function ($link_id) use ($app){
 
 	$host = $_SERVER['HTTP_HOST'];
-	$url_id = prepareIdIn($url_id,$host);
+	$link_id = prepareIdIn($link_id,$host);
 
 	$ReturnObject = array();
 
  	$request = $app->request();
  	$params = $request->params();
 
-	if(isset($params['pull_date'])){ $pull_date = mysql_real_escape_string($params['pull_date']); } else { $pull_date = date('Y-m-d H:i:s'); }
-	if(isset($params['title'])){ $title = mysql_real_escape_string($params['title']); } else { $title = 'No Title'; }
-	if(isset($params['content'])){ $content = mysql_real_escape_string($params['content']); } else { $content = ''; }
-	if(isset($params['url'])){ $url = mysql_real_escape_string($params['url']); } else { $url = ''; }
+	if(isset($params['created_date'])){ $created_date = mysql_real_escape_string($params['created_date']); } else { $created_date = date('Y-m-d H:i:s'); }
+	if(isset($params['url'])){ $url = mysql_real_escape_string($params['url']); } else { $url = 'No Title'; }
+	if(isset($params['short_url'])){ $short_url = mysql_real_escape_string($params['short_url']); } else { $short_url = ''; }
 
-  	$Query = "SELECT * FROM url WHERE ID = " . $url_id;
+  	$Query = "SELECT * FROM link WHERE ID = " . $link_id;
 	//echo $Query . "<br />";
 	$Database = mysql_query($Query) or die('Query failed: ' . mysql_error());
 
 	if($Database && mysql_num_rows($Database))
 		{
 
-		$query = "UPDATE url SET";
+		$query = "UPDATE link SET";
 
-		if($title!='') { $title .= " title = '" . $title . "'"; }
-		if($body!='') { $query .= ", content = '" . $content . "'"; }
-		if($author!='') { $query .= ", url = '" . $url . "'"; }
+		if($url!='') { $url .= " url = '" . $url . "'"; }
+		if($short_url!='') { $query .= ", short_url = '" . $short_url . "'"; }
 
-		$query .= " WHERE url_id = " . $url_id;
+		$query .= " WHERE link_id = " . $link_id;
 
-		echo $query . "<br />";
+		//echo $query . "<br />";
 		mysql_query($query) or die('Query failed: ' . mysql_error());
 		}
 
 	$TagQuery = "SELECT t.tag_id, t.tag from tags t";
-	$TagQuery .= " INNER JOIN url_tag_pivot btp ON t.tag_id = btp.tag_id";
-	$TagQuery .= " WHERE btp.Blog_ID = " . $url_id;
+	$TagQuery .= " INNER JOIN link_tag_pivot btp ON t.tag_id = btp.tag_id";
+	$TagQuery .= " WHERE btp.Blog_ID = " . $link_id;
 	$TagQuery .= " ORDER BY t.tag DESC";
 	$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());
 
-	$url_id = prepareIdOut($url_id,$host);
+	$link_id = prepareIdOut($link_id,$host);
 
 	$F = array();
-	$F['url_id'] = $url_id;
-	$F['pull_date'] = $pull_date;
-	$F['title'] = $title;
-	$F['content'] = $content;
+	$F['link_id'] = $link_id;
+	$F['created_date'] = $created_date;
 	$F['url'] = $url;
+	$F['short_url'] = $short_url;
 
 	$F['tags'] = array();
 

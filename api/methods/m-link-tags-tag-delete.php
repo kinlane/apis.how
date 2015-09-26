@@ -1,5 +1,5 @@
 <?php
-$route = '/url/tags/:tag';
+$route = '/link/tags/:tag';
 $app->delete($route, function ($tag)  use ($app){
 
 	$ReturnObject = array();
@@ -7,7 +7,7 @@ $app->delete($route, function ($tag)  use ($app){
  	$request = $app->request();
  	$params = $request->params();
 
-	$Query = "SELECT t.Tag_ID, t.Tag FROM tags WHERE Tag = '" . trim(mysql_real_escape_string($tag)) . "'";
+	$Query = "SELECT t.tag_id, t.tag FROM tags WHERE tag = '" . trim(mysql_real_escape_string($tag)) . "'";
 
 	$TagResult = mysql_query($LinkQuery) or die('Query failed: ' . mysql_error());
 
@@ -15,9 +15,9 @@ $app->delete($route, function ($tag)  use ($app){
 		{
 		$Tag = mysql_fetch_assoc($TagResult);
 		$tag_id = $Tag['Tag_ID'];
-		$Tag_Text = $Tag['Tag'];
+		$tag = $Tag['Tag'];
 
-		$DeleteQuery = "DELETE FROM url_tag_pivot WHERE Tag_ID = " . $tag_id;
+		$DeleteQuery = "DELETE FROM link_tag_pivot WHERE tag_id = " . $tag_id;
 		$DeleteResult = mysql_query($DeleteQuery) or die('Query failed: ' . mysql_error());
 
 		$host = $_SERVER['HTTP_HOST'];
@@ -25,8 +25,8 @@ $app->delete($route, function ($tag)  use ($app){
 
 		$F = array();
 		$F['tag_id'] = $tag_id;
-		$F['tag'] = $Tag_Text;
-		$F['url_count'] = 0;
+		$F['tag'] = $tag;
+		$F['link_count'] = 0;
 
 		array_push($ReturnObject, $F);
 		}

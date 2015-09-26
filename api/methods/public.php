@@ -1,5 +1,5 @@
 <?php
 
-require_once('m-url-get.php');
+require_once('m-link-get.php');
 
 ?>
