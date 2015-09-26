@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "url": "APIs.How",
+    "title": "APIs.How",
     "description": "I have long used Bit.ly as my URL shortner, but recently have started outgrowing the platform, and needing more control over my links. I have apis.how as a universal URL shortener for my online and offline linkage.",
     "termsOfService": "http://stack.network/terms-of-service.html",
     "version": "v1"
@@ -107,7 +107,7 @@
             "type": "string"
           },
           {
-            "name": "url",
+            "name": "title",
             "in": "query",
             "description": "url for the link",
             "required": true,
@@ -232,7 +232,7 @@
             "type": "string"
           },
           {
-            "name": "url",
+            "name": "title",
             "in": "query",
             "description": "ttle for the link",
             "required": false,
@@ -516,7 +516,7 @@
           "description": "date the link was created",
           "type": "string"
         },
-        "url": {
+        "title": {
           "description": "ttle for the link",
           "type": "string"
         },
