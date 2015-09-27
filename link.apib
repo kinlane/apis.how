@@ -1,0 +1,263 @@
+FORMAT: 1A
+HOST: http://api.apis.how/
+
+# APIs.How
+I have long used Bit.ly as my URL shortner, but recently have started outgrowing the platform, and needing more control over my links. I have apis.how as a universal URL shortener for my online and offline linkage.
+
+## Authentication
+This API uses Custom Query Parameter for its authentication.
+
+The parameters that are needed to be sent for this type of authentication are as follows:
++ `appid`
++ `appkey`
+
+# Group Links
+
+## Link [/link/{?appid,appkey,query,page,count,sort}]
+
+### getLinks [GET]
+all links
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the link
+
+    + appkey (string, required)
+
+        your appkey for accessing the link
+
+    + query (string, optional)
+
+        a text query to search across link
+
+    + page (string, optional)
+
+        which page of results to show
+
+    + count (string, optional)
+
+        how many to show on page
+
+    + sort (string, optional)
+
+        which field to sort by
+
+
++ Response 200 (application/json)
+    + Attributes (array[link])
+
+
+## Link [/link/{?appid,appkey,url,short_url}]
+
+### addLink [POST]
+add a link
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the link
+
+    + appkey (string, required)
+
+        your appkey for accessing the link
+
+    + url (string, required)
+
+        url for the link
+
+    + short_url (string, optional)
+
+        short url for the link
+
+
++ Response 200 (application/json)
+    + Attributes (array[link])
+
+
+## Link By Link Id [/link/{link_id}/{?appid,appkey}]
+
++ Parameters
+    + link_id (number, required)
+
+        the unique id for link entry
+
+
+### getlink [GET]
+retrieve a link using its id
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the link
+
+    + appkey (string, required)
+
+        your appkey for accessing the link
+
+
++ Response 200 (application/json)
+    + Attributes (array[link])
+
+
+## Link By Link Id [/link/{link_id}/{?appid,appkey,link_date,url,short_url}]
+
++ Parameters
+    + link_id (number, required)
+
+        the unique id for link
+
+
+### updatelink [PUT]
+update link
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the link
+
+    + appkey (string, required)
+
+        your appkey for accessing the link
+
+    + link_date (string, optional)
+
+        date the link was last pulled
+
+    + url (string, optional)
+
+        ttle for the link
+
+    + short_url (string, optional)
+
+        short_url of the link
+
+
++ Response 200 (application/json)
+    + Attributes (array[link])
+
+
+## Link By Link Id [/link/{link_id}/{?appid,appkey}]
+
++ Parameters
+    + link_id (number, required)
+
+        the unique id for link entry
+
+
+### deletelink [DELETE]
+delete link
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the link
+
+    + appkey (string, required)
+
+        your appkey for accessing the link
+
+
++ Response 200 (application/json)
+    + Attributes (array[link])
+
+
+
+# Group Tags
+
+## Link Tags By Link Id [/link/{link_id}/tags/{?appid,appkey}]
+
++ Parameters
+    + link_id (number, required)
+
+        id for link
+
+
+### getlinkTags [GET]
+link tags
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the link
+
+    + appkey (string, required)
+
+        your appkey for accessing the link
+
+
++ Response 200 (application/json)
+    + Attributes (array[tag])
+
+
+## Link Tags By Link Id [/link/{link_id}/tags/{?appid,appkey,tag}]
+
++ Parameters
+    + link_id (number, required)
+
+        id for the link
+
+
+### addlinkTag [POST]
+add tag to link
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the link
+
+    + appkey (string, required)
+
+        your appkey for accessing the link
+
+    + tag (string, required)
+
+        tag name
+
+
++ Response 200 (application/json)
+    + Attributes (array[tag])
+
+
+## Link Tags By Link Id And Tag [/link/{link_id}/tags/{tag}{?appid,appkey}]
+
++ Parameters
+    + link_id (string, required)
+
+        id for the link
+
+    + tag (string, required)
+
+        tag to remove from link
+
+
+### deletelinkTag [DELETE]
+delete link tag
++ Parameters
+    + appid (string, required)
+
+        your appid for accessing the link
+
+    + appkey (string, required)
+
+        your appkey for accessing the link
+
+
++ Response 200 (application/json)
+    + Attributes (array[tag])
+
+
+
+# Data Structures
+
+## link (object)
+
+
+### Properties
++ `link_id` (number, optional) - unique id of the link
++ `created_date` (string, optional) - date the link was created
++ `url` (string, optional) - ttle for the link
++ `short_url` (string, optional) - short_url of the link
+
+
+## tag (object)
+
+
+### Properties
++ `tag_id` (number, optional) - id for the tag
++ `tag` (string, optional) - text tag
++ `api_count` (number, optional) - number of items api with tag
+
