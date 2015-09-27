@@ -6,7 +6,7 @@
     "termsOfService": "http://stack.network/terms-of-service.html",
     "version": "v1"
   },
-  "host": "api.tsa.link",
+  "host": "api.apis.how",
   "basePath": "/",
   "schemes": [
     "http"
@@ -107,7 +107,7 @@
             "type": "string"
           },
           {
-            "name": "title",
+            "name": "url",
             "in": "query",
             "description": "url for the link",
             "required": true,
@@ -232,7 +232,7 @@
             "type": "string"
           },
           {
-            "name": "title",
+            "name": "url",
             "in": "query",
             "description": "ttle for the link",
             "required": false,
@@ -516,7 +516,7 @@
           "description": "date the link was created",
           "type": "string"
         },
-        "title": {
+        "url": {
           "description": "ttle for the link",
           "type": "string"
         },
