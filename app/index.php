@@ -1,5 +1,5 @@
 <?php
 
-echo "Hello World - URL Shortener";
-
+var_dump($_SERVER);
+//$BreakItDown = parse_url()
 ?>
