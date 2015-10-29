@@ -38,7 +38,7 @@ if($checkLikeTableResult && mysql_num_rows($checkLikeTableResult))
   }
 else
   {
-  $CreateTableQuery = "CREATE TABLE  `apis-how`.`" . $table_name . "` (";
+  $CreateTableQuery = "CREATE TABLE  " . $table_name . "` (";
   $CreateTableQuery .= "`track_id` int(10) unsigned NOT NULL AUTO_INCREMENT,";
   $CreateTableQuery .= "`click_date` datetime NOT NULL,";
   $CreateTableQuery .= "PRIMARY KEY (`track_id`)";
