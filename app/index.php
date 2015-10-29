@@ -26,4 +26,9 @@ while ($Database = mysql_fetch_assoc($DatabaseResult))
   $short_url = $Database['short_url'];
   }
 echo $url;
+
+$url_array = parse_url($url);
+var_dump($url_array);
+
+
 ?>
