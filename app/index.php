@@ -14,7 +14,7 @@ require_once('/var/www/html/system/class-amazon-s3.php');
 $url = "";
 $Requested_URL = "http://apis.how" . $_SERVER['REQUEST_URI'];
 
-echo $Requested_URL . "<br />";
+//echo $Requested_URL . "<br />";
 
 $Query = "SELECT * FROM link WHERE short_url = '" . $Requested_URL . "'";
 $DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
@@ -25,7 +25,7 @@ while ($Database = mysql_fetch_assoc($DatabaseResult))
   $url = $Database['url'];
   $short_url = $Database['short_url'];
   }
-echo $url;
+//echo $url;
 
 $table_name = "track_url_" . $link_id;
 
@@ -52,4 +52,6 @@ $click_date = date('Y-m-d H:i:s');
 $query = "INSERT INTO " . $table_name . "(click_date) VALUES('" . mysql_real_escape_string($click_date) . "')";
 //echo $query . "<br />";
 mysql_query($query) or die('Query failed: ' . mysql_error());
+
+header('Location: ' . $url);
 ?>
