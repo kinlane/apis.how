@@ -1,7 +1,7 @@
 <?php
 
 $dbserver = "laneworks-2.cjgvjastiugl.us-east-1.rds.amazonaws.com";
-$dbname = "stack_network_kinlane_lowhangingfruit";
+$dbname = "stack_network_kinlane_apishow";
 //$dbname = "apievangelist";
 $dbuser = "kinlane";
 $dbpassword = "ap1stack!";
@@ -12,8 +12,8 @@ mysql_select_db($dbname);
 
 $datastore = "mysql"; // mysql or github JSON currently
 
-$githuborg = "low-hanging-fruit";
-$githubrepo = "core";
+$githuborg = "kinlane";
+$githubrepo = "apis.how";
 
 $guser = "kinlane";
 $gpass = "kpawwjN4dnJy4j";

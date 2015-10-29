@@ -14,14 +14,14 @@ $app->get($route, function ($link_id)  use ($app){
 	while ($Database = mysql_fetch_assoc($DatabaseResult))
 		{
 
-			$link_id = $Database['ID'];
+			$link_id = $Database['link_id'];
 			$created_date = $Database['created_date'];
 			$url = $Database['url'];
 			$short_url = $Database['short_url'];
 
 			$TagQuery = "SELECT t.tag_id, t.tag from tags t";
-			$TagQuery .= " INNER JOIN link_tag_pivot btp ON t.tag_id = btp.tag_id";
-			$TagQuery .= " WHERE btp.Blog_ID = " . $link_id;
+			$TagQuery .= " INNER JOIN link_tag_pivot ltp ON t.tag_id = ltp.tag_id";
+			$TagQuery .= " WHERE ltp.link_id = " . $link_id;
 			$TagQuery .= " ORDER BY t.tag DESC";
 			$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());
 
