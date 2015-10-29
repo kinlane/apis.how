@@ -16,7 +16,7 @@ $Requested_URL = "http://apis.how" . $_SERVER['REQUEST_URI'];
 
 echo $Requested_URL . "<br />";
 
-$Query = "SELECT * FROM shorten WHERE short_url = '" . $Requested_URL . "'";
+$Query = "SELECT * FROM link WHERE short_url = '" . $Requested_URL . "'";
 $DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 while ($Database = mysql_fetch_assoc($DatabaseResult))
   {
@@ -29,7 +29,7 @@ echo $url;
 
 $table_name = "track_url_" . $link_id;
 
-$checkLikeTableQuery = "show tables from `apis-how` like " . chr(34) . $table_name . chr(34);
+$checkLikeTableQuery = "show tables from `stack_network_kinlane_apishow` like " . chr(34) . $table_name . chr(34);
 $checkLikeTableResult = mysql_query($checkLikeTableQuery) or die('Query failed: ' . mysql_error());
 
 if($checkLikeTableResult && mysql_num_rows($checkLikeTableResult))
@@ -38,7 +38,7 @@ if($checkLikeTableResult && mysql_num_rows($checkLikeTableResult))
   }
 else
   {
-  $CreateTableQuery = "CREATE TABLE  `apis-how`.`" . $table_name . "` (";
+  $CreateTableQuery = "CREATE TABLE  `stack_network_kinlane_apishow`.`" . $table_name . "` (";
   $CreateTableQuery .= "`track_id` int(10) unsigned NOT NULL AUTO_INCREMENT,";
   $CreateTableQuery .= "`click_date` datetime NOT NULL,";
   $CreateTableQuery .= "PRIMARY KEY (`track_id`)";

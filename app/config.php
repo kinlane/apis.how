@@ -1,7 +1,7 @@
 <?php
 
 $dbserver = "laneworks-2.cjgvjastiugl.us-east-1.rds.amazonaws.com";
-$dbname = "apis-how";
+$dbname = "stack_network_kinlane_apishow";
 $dbuser = "kinlane";
 $dbpassword = "ap1stack!";
 
