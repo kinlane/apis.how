@@ -27,8 +27,29 @@ while ($Database = mysql_fetch_assoc($DatabaseResult))
   }
 echo $url;
 
-$url_array = parse_url($url);
-var_dump($url_array);
+$table_name = "track_url_" . $link_id;
 
+$checkLikeTableQuery = "show tables from apis-how like " . chr(34) . $table_name . chr(34);
+$checkLikeTableResult = mysql_query($checkLikeTableQuery) or die('Query failed: ' . mysql_error());
 
+if($checkLikeTableResult && mysql_num_rows($checkLikeTableResult))
+  {
+  $checkLikeTableResult = mysql_fetch_assoc($checkLikeTableResult);
+  }
+else
+  {
+  $CreateTableQuery = "CREATE TABLE  `apis-how`.`" . $table_name . "` (";
+  $CreateTableQuery .= "`track_id` int(10) unsigned NOT NULL AUTO_INCREMENT,";
+  $CreateTableQuery .= "`click_date` datetime NOT NULL,";
+  $CreateTableQuery .= "PRIMARY KEY (`track_id`)";
+  $CreateTableQuery .= ") ENGINE=InnoDB DEFAULT CHARSET=latin1;  ";
+  //echo "<br />" . $CreateTableQuery . "<br />";
+  mysql_query($CreateTableQuery) or die('Query failed: ' . mysql_error());
+
+  }
+
+$click_date = date('Y-m-d H:i:s');
+$query = "INSERT INTO " . $table_name . "(click_date) VALUES('" . mysql_real_escape_string($click_date) . "')";
+//echo $query . "<br />";
+mysql_query($query) or die('Query failed: ' . mysql_error());
 ?>
