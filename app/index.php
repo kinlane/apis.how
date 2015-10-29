@@ -1,5 +1,5 @@
 <?php
 
-echo "Hello World - Blog App!!!";
+echo "Hello World - URL Shortener";
 
 ?>
