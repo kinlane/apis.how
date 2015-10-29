@@ -16,7 +16,7 @@ $Requested_URL = "http://apis.how" . $_SERVER['REQUEST_URI'];
 
 echo $Requested_URL . "<br />";
 
-$Query = "SELECT * FROM link WHERE short_url = '" . $Requested_URL . "'";
+$Query = "SELECT * FROM shorten WHERE short_url = '" . $Requested_URL . "'";
 $DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 while ($Database = mysql_fetch_assoc($DatabaseResult))
   {
