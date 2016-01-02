@@ -16,7 +16,7 @@ $Requested_URL = "http://apis.how" . $_SERVER['REQUEST_URI'];
 
 //echo $Requested_URL . "<br />";
 
-if($Requested_URL!='')
+if(strlen($Requested_URL) > 4)
   {
   $Query = "SELECT * FROM link WHERE short_url = '" . $Requested_URL . "'";
   $DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
