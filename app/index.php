@@ -14,8 +14,6 @@ require_once('/var/www/html/system/class-amazon-s3.php');
 $url = "";
 $Requested_URL = "http://apis.how" . $_SERVER['REQUEST_URI'];
 
-//echo $Requested_URL . "<br />";
-
 if(strlen($Requested_URL) > 4 && $Requested_URL !='http://apis.how/'
   {
   $Query = "SELECT * FROM link WHERE short_url = '" . $Requested_URL . "'";
@@ -57,6 +55,7 @@ if(strlen($Requested_URL) > 4 && $Requested_URL !='http://apis.how/'
     mysql_query($query) or die('Query failed: ' . mysql_error());
 
     header('Location: ' . $url);
+
     }
   else
     {
