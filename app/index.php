@@ -14,7 +14,7 @@ require_once('/var/www/html/system/class-amazon-s3.php');
 $url = "";
 $Requested_URL = "http://apis.how" . $_SERVER['REQUEST_URI'];
 
-//echo $Requested_URL . "<br />";
+echo $Requested_URL . "<br />";
 
 if(strlen($Requested_URL) > 4)
   {
@@ -28,7 +28,7 @@ if(strlen($Requested_URL) > 4)
     $short_url = $Database['short_url'];
     }
   //echo $url;
-
+echo $link_id . "<br />";
   $table_name = "track_url_" . $link_id;
 
   $checkLikeTableQuery = "show tables from `stack_network_kinlane_apishow` like " . chr(34) . $table_name . chr(34);
